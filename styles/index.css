@@ -55,14 +55,14 @@ a {
 }
 
 .banner h1,
-.banner p {
+.banner h2 {
     animation-name: fadeIn;
     animation-duration: 2s;
     animation-fill-mode: both;
 }
 
 .banner h1,
-.banner p {
+.banner h2 {
     opacity: 0;
 }
 
