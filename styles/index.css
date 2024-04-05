@@ -10,7 +10,7 @@ a {
 }
 
 .img {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://static-res.qq.com/web/im.qq.com/qq9_introduction_poster.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
