@@ -1,0 +1,283 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: '微软雅黑', Arial, sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.img {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+.header {
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.menu-btn {
+    display: none;
+}
+
+.banner {
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.banner h1 {
+    font-size: 16em;
+    margin-top: 0;
+}
+
+.banner h2 {
+    font-size: 3.6em;
+    margin-bottom: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.banner h1,
+.banner h2 {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    opacity: 0;
+}
+
+.content {
+    padding: 20px;
+}
+
+.footer {
+    background-color: #f0f0f0;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    padding: 0 20px;
+}
+
+button {
+    background-color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e1e1e1;
+    color: #0051ff;
+}
+
+nav a:hover {
+    background-color: #cbdae0;
+    color: #0051ff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-area {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 3.4vw;
+    height: 11.22vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.download-btn {
+    position: relative;
+    display: flex;
+    width: 12.2vw;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 1vw;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.download-btn:hover {
+    border-radius: 6%;
+    padding: 20px 0;
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.download-btn a {
+    display: flex;
+    align-items: center;
+}
+
+.download-txt {
+    font-family: PingFang SC;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.19vw;
+    color: #fff;
+}
+
+.osLOGO {
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    margin-right: 10px;
+    background-position: 50%;
+}
+
+.iOS,
+.macOS {
+    background-image: url("../image/apple.png");
+}
+
+.Android {
+    background-image: url("../image/android.png");
+}
+
+.HarmonyOS {
+    background-image: url("../image/huawei.png");
+}
+
+.Windows {
+    background-image: url("../image/windows.png");
+}
+
+.Linux {
+    background-image: url("../image/linux.png");
+}
+
+@media (min-width: 645px) and (max-width: 1024px) {
+
+    .header,
+    .footer {
+        padding: 5px 10px;
+    }
+
+    .banner h1 {
+        font-size: 10em;
+    }
+
+    .banner h2 {
+        font-size: 2em;
+    }
+
+    .download-btn {
+        width: 20vw;
+    }
+
+    .download-txt {
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 645px) {
+    .header {
+        flex-direction: row;
+        text-align: center;
+        position: relative;
+    }
+
+    nav,
+    .lr-btn {
+        display: none;
+    }
+
+    .menu-btn {
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        color: white;
+        user-select: none;
+    }
+
+    .nav-active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        padding: 20px 0;
+        z-index: 2;
+    }
+
+    .nav-active a,
+    .nav-active .login-btn,
+    .nav-active .register-btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px 20px;
+        border-radius: 0px;
+        background-color: #ffffff;
+        color: #0051ff;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+    }
+    .nav-active a{
+        text-indent: 1rem;
+    }
+    
+    .banner h1 {
+        font-size: 5em;
+    }
+
+    .banner h2 {
+        font-size: 1.5em;
+    }
+
+    .download-area {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        bottom: 30%;
+    }
+
+    .download-btn {
+        width: 50%;
+        margin: 18px 0;
+    }
+
+    .download-txt {
+        font-size: 3vw;
+    }
+}
