@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logo首页2</title>
-    <link rel="stylesheet" href="styles/index3.css">
+    <link rel="stylesheet" href="styles/index4.css">
 </head>
 
 <body>
@@ -107,21 +107,11 @@
         })
         //登录按钮的点击事件
         loginBtn.addEventListener('click', function () {
-            menuBtn.innerHTML = '☰'
             alert('登录按钮被点击了')
         })
         //注册按钮的点击事件
         registerBtn.addEventListener('click', function () {
-            menuBtn.innerHTML = '☰'
             alert('注册按钮被点击了')
-        })
-        //点击其他位置时，菜单栏和登录注册按钮会消失
-        window.addEventListener('click', function (e) {
-            if (!e.target.matches('.menu-btn') && !e.target.matches('.lr-btn')) {
-                menuBtn.innerHTML = '☰'
-                nav.classList.remove('nav-active')
-                lrBtn.classList.remove('lr-active')
-            }
         })
         //各个系统下载按钮的点击事件
         //这里假设每个下载按钮都有一个id属性，用于区分不同的下载按钮
@@ -130,6 +120,14 @@
                 alert(this.id + '下载按钮被点击了')
             })
         }
+        //点击其他位置时，菜单栏和登录注册按钮会消失
+        window.addEventListener('click', function (e) {
+            if (!e.target.matches('.menu-btn') && !e.target.matches('.lr-btn')) {
+                nav.classList.remove('nav-active')
+                lrBtn.classList.remove('lr-active')
+            }
+        })
+
     })
 </script>
 

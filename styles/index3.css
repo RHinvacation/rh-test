@@ -256,8 +256,6 @@ nav a:hover {
         margin: 10px 0;
         padding: 10px 20px;
         border-radius: 0px;
-        background-color: #ffffff;
-        color: #0051ff;
         font-size: 18px;
         border: none;
         cursor: pointer;
@@ -266,6 +264,16 @@ nav a:hover {
 
     .nav-active a {
         text-indent: 1rem;
+    }
+    .nav-active button{
+        /* 按钮文字设置为白色，背景不填充任何颜色 */
+        color: #fff;
+        background-color: transparent;
+    }
+
+    .nav-active button:hover {
+        background-color: #cbdae0;
+        color: #0051ff;
     }
 
     .banner {
