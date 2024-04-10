@@ -82,6 +82,15 @@ nav a {
     padding: 0 20px;
 }
 
+/* 导航链接活跃状态 */
+.nav-menu.active {
+    background-color: #cbdae0;
+    color: #0051ff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
 button {
     background-color: #ffffff;
     border: none;
@@ -265,7 +274,8 @@ nav a:hover {
     .nav-active a {
         text-indent: 1rem;
     }
-    .nav-active button{
+
+    .nav-active button {
         /* 按钮文字设置为白色，背景不填充任何颜色 */
         color: #fff;
         background-color: transparent;

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo首页2</title>
+    <title>测试</title>
     <link rel="stylesheet" href="styles/index3.css">
 </head>
 
@@ -14,10 +14,10 @@
             <div>Logo</div>
             <div class="menu-btn">☰</div>
             <nav>
-                <a href="javascript:alert('首页')" class="nav-menu">首页</a>
+                <a href="index.html">首页</a>
                 <a href="javascript:alert('产品介绍')">产品介绍</a>
                 <a href="https://github.com/RHinvacation?tab=repositories">下载中心</a>
-                <a href="test.html" rel="noopener noreferrer">测试</a>
+                <a href="test.html" rel="noopener noreferrer" class="nav-menu">测试</a>
                 <a href="javascript:alert('帮助中心')">帮助中心</a>
             </nav>
             <div class="lr-btn">
@@ -25,54 +25,9 @@
                 <button class="register-btn">Register</button>
             </div>
         </div>
-
-        <div class="banner">
-            <h2>欢 迎 使 用</h2>
-            <h1>Logo2</h1>
+        <div class="content">
+            <h2>Content</h2>
         </div>
-
-        <div class="download-area">
-            <div class="download-btn" id="iOS">
-                <a href="">
-                    <div class="iOS osLOGO"></div>
-                    <span class="download-txt">iOS</span>
-                </a>
-            </div>
-            <div class="download-btn" id="Android">
-                <a href="">
-                    <div class="Android osLOGO"></div>
-                    <span class="download-txt">Android</span>
-                </a>
-            </div>
-            <div class="download-btn" id="HarmonyOS">
-                <a href="">
-                    <div class="HarmonyOS osLOGO"></div>
-                    <span class="download-txt">HarmonyOS</span>
-                </a>
-            </div>
-            <div class="download-btn" id="Windows">
-                <a href="">
-                    <div class="Windows osLOGO"></div>
-                    <span class="download-txt">Windows</span>
-                </a>
-            </div>
-            <div class="download-btn" id="Linux">
-                <a href="">
-                    <div class="Linux osLOGO"></div>
-                    <span class="download-txt">Linux</span>
-                </a>
-            </div>
-            <div class="download-btn" id="macOS">
-                <a href="">
-                    <div class="macOS osLOGO"></div>
-                    <span class="download-txt">macOS</span>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="content">
-        <h2>Content</h2>
     </div>
 
     <div class="footer">
@@ -113,7 +68,7 @@
         const loginBtn = lrBtn.querySelector('button:nth-child(1)')
         const registerBtn = lrBtn.querySelector('button:nth-child(2)')
         const downloadBtns = document.querySelectorAll('.download-btn')
-
+        
         //菜单按钮的点击事件
         menuBtn.addEventListener('click', function () {
             nav.classList.toggle('nav-active')
@@ -145,14 +100,13 @@
                 lrBtn.classList.remove('lr-active')
             }
         })
-        //各个系统下载按钮的点击事件
-        //这里假设每个下载按钮都有一个id属性，用于区分不同的下载按钮
-        for (let i = 0; i < downloadBtns.length; i++) {
-            downloadBtns[i].addEventListener('click', function () {
-                alert(this.id + '下载按钮被点击了')
-            })
-        }
-
+        window.addEventListener('resize', function () {
+            if (window.innerWidth <= 645) {
+                aTagActive.classList.remove('active')
+            } else {
+                aTagActive.classList.add('active')
+            }
+        })
     })
 </script>
 
