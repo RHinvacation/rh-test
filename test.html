@@ -41,6 +41,10 @@
 </body>
 
 <script>
+    //将带有nav-current类的a标签的herf设置为不可点击
+    const navCurrent = document.querySelector('.nav-current')
+    navCurrent.setAttribute('href', 'javascript:void(0)')
+
     /*进入页面时，检查min-width是否大于645px，如果是，则增加导航栏a标签的active类，
     如果不是，则删除导航栏a标签的active类，
     在拖动窗口的时候，对header部分实时刷新*/
