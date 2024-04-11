@@ -17,7 +17,7 @@
                 <a href="index.html">首页</a>
                 <a href="javascript:alert('产品介绍')">产品介绍</a>
                 <a href="https://github.com/RHinvacation?tab=repositories">下载中心</a>
-                <a href="test.html" rel="noopener noreferrer" class="nav-menu">测试</a>
+                <a href="test.html" class="nav-current">测试</a>
                 <a href="javascript:alert('帮助中心')">帮助中心</a>
             </nav>
             <div class="lr-btn">
@@ -47,16 +47,16 @@
     window.addEventListener('load', function () {
         const width = window.innerWidth
         if (width > 645) {
-            document.querySelector('.nav-menu').classList.add('active')
+            document.querySelector('.nav-current').classList.add('active')
         } else {
-            document.querySelector('.nav-menu').classList.remove('active')
+            document.querySelector('.nav-current').classList.remove('active')
         }
         window.addEventListener('resize', function () {
             const width = window.innerWidth
             if (width > 645) {
-                document.querySelector('.nav-menu').classList.add('active')
+                document.querySelector('.nav-current').classList.add('active')
             } else {
-                document.querySelector('.nav-menu').classList.remove('active')
+                document.querySelector('.nav-current').classList.remove('active')
             }
         })
     }) 
