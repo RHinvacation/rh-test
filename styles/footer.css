@@ -1,0 +1,50 @@
+.footer {
+    background-color: #f8f8f9;
+    color: #666666;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer a {
+    color: #2e2d2d;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    color: #0051ff;
+}
+
+.footer p {
+    margin: 10px 0;
+}
+
+/* 手机屏幕: */
+@media (max-width: 767px) {
+	/*手机模式下，将footer部分的第一个p标签和最后一个p标签位置调换*/
+
+}
+@media (max-width: 767px) {
+    .footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+		margin: 0;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+    }
+
+    .footer p:first-child {
+        order: 2; /* 移动第一个p标签到第二个位置 */
+		margin-bottom: 10px;
+    }
+
+    .footer p:last-child {
+        order: 1; /* 移动最后一个p标签到第一个位置 */
+		margin-bottom: 10px;/* 添加一些间距 */
+    }
+}

@@ -1,0 +1,142 @@
+.header {
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-fixed {
+    color: white;
+    text-indent: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    z-index: 900;
+}
+
+nav a {
+    color: white;
+    padding: 0 20px;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* 导航链接活跃状态 */
+.nav-current.active {
+    background-color: #cbdae0;
+    color: #0051ff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+button {
+    background-color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e1e1e1;
+    color: #0051ff;
+}
+
+nav a:hover {
+    background-color: #cbdae0;
+    color: #0051ff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.lrbtn-area {
+    padding-right: 1rem;
+}
+
+/* 手机屏幕: */
+@media (max-width:645px) {
+    .header {
+        flex-direction: row;
+        text-align: center;
+        position: relative;
+    }
+
+    nav,
+    .lr-btn {
+        display: none;
+    }
+
+    .menu-btn {
+        display: inline-block;
+        margin: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        color: white;
+        user-select: none;
+    }
+
+    .menubtn-area {
+        font-size: 20px;
+        padding-right: 1.5rem;
+    }
+
+    .nav-active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        padding: 20px 0;
+        z-index: 2;
+    }
+
+    .nav-active a,
+    .nav-active .login-btn,
+    .nav-active .register-btn {
+        display: block;
+        width: 100%;
+        margin: 10px 0;
+        padding: 10px 20px;
+        border-radius: 0px;
+        font-size: 18px;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    .nav-active a {
+        text-indent: 1rem;
+    }
+
+    .nav-active button {
+        /* 按钮文字设置为白色，背景不填充任何颜色 */
+        color: #fff;
+        background-color: transparent;
+    }
+
+    .nav-active button:hover {
+        background-color: #cbdae0;
+        color: #0051ff;
+    }
+}
