@@ -4,88 +4,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo首页2</title>
-    <link rel="stylesheet" href="styles/header.css">
+    <title>Logo3</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
-    <div class="img">
-        <div class="header">
-            <div>Logo</div>
-            <div class="menu-btn">☰</div>
-            <nav>
-                <a href="javascript:alert('首页')" class="nav-current">首页</a>
-                <a href="javascript:alert('产品介绍')">产品介绍</a>
-                <a href="https://github.com/RHinvacation?tab=repositories">下载中心</a>
-                <a href="test.html" rel="noopener noreferrer">测试</a>
-                <a href="javascript:alert('帮助中心')">帮助中心</a>
-            </nav>
-            <div class="lr-btn ">
-                <button class="login-btn">Login</button>
-                <button class="register-btn">Register</button>
+    <div id="app">
+        <div class="topbar">
+            <div class="menu">
+                <div v-html="webLogo"></div>
+                <div class="menu-btn" @click="menuBtnClick">{{menuBtn}}</div>
+                <div class="menu-list" v-if="menuBtn == '×'">
+                    <div v-for="(menuItem, index) in menuList" :key="index">
+                        <a :href="menuItem.url">{{menuItem.name}}</a>
+                    </div>
+                </div>
+            </div>
+            <div class="banner">
+                <!-- <h1>{{bannerTitle}}</h1>
+                <p>{{bannerParagraph}}</p> -->
+            </div>
+            <div class="download-area">
+                <div class="download-btn" v-for="(osItem, index) in downloadList" :key="index">
+                    <a :href="osItem.url">
+                        <div v-html="osItem.logo"></div><span class="download-txt">{{osItem.name}}</span>
+                    </a>
+                </div>
             </div>
         </div>
 
-        <div class="banner">
-            <h2>欢 迎 使 用</h2>
-            <h1>Logo2</h1>
+        <div class="content">
+            <h1>{{contentList}}</h1>
         </div>
 
-        <div class="download-area">
-            <div class="download-btn" id="iOS">
-                <a href="">
-                    <div class="iOS osLOGO"></div>
-                    <span class="download-txt">iOS</span>
-                </a>
-            </div>
-            <div class="download-btn" id="Android">
-                <a href="">
-                    <div class="Android osLOGO"></div>
-                    <span class="download-txt">Android</span>
-                </a>
-            </div>
-            <div class="download-btn" id="HarmonyOS">
-                <a href="">
-                    <div class="HarmonyOS osLOGO"></div>
-                    <span class="download-txt">HarmonyOS</span>
-                </a>
-            </div>
-            <div class="download-btn" id="Windows">
-                <a href="">
-                    <div class="Windows osLOGO"></div>
-                    <span class="download-txt">Windows</span>
-                </a>
-            </div>
-            <div class="download-btn" id="Linux">
-                <a href="">
-                    <div class="Linux osLOGO"></div>
-                    <span class="download-txt">Linux</span>
-                </a>
-            </div>
-            <div class="download-btn" id="macOS">
-                <a href="">
-                    <div class="macOS osLOGO"></div>
-                    <span class="download-txt">macOS</span>
-                </a>
+        <div class="footer">
+            <div class="footer-left" v-html="footerList.webLogo"></div>
+            <div class="footer-right">
+                <div class="footer-right-top">
+                    <div class="footer-link">
+                        <div v-for="(footerLinkItem, index) in footerList.footerLink" :key="index">
+                            <a :href="footerLinkItem.url">{{footerLinkItem.name}}</a>
+                            <span v-if="index < footerList.footerLink.length - 1">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="email">{{footerList.email}}</div>
+                    <div class="copyright">{{footerList.copyright_zh}}</div>
+                    <div class="copyright">{{footerList.copyright_EN}}</sp>
+                    </div>
+                </div>
+                <hr />
+                <div class="media-list">
+                    <div v-for="(mediaItem, index) in footerList.MediaList" :key="index">
+                        <a :href="mediaItem.url" >{{mediaItem.media}}</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+        const RootComp = {
+            data() {
+                return {
+                    webLogo: '<img src="image/logo3.png" alt="logo3">',
+                    menuBtn: '☰',
+                    menuList: [
+                        {
+                            name: '首页',
+                            url: 'javascript:alert("首页")'
+                        },
+                        {
+                            name: '产品介绍',
+                            url: 'javascript:alert("产品介绍")'
+                        },
+                        {
+                            name: '下载中心',
+                            url: 'javascript:alert("下载中心")'
+                        },
+                        {
+                            name: '登录',
+                            url: 'javascript:alert("登录")'
+                        },
+                        {
+                            name: '注册',
+                            url: 'javascript:alert("注册")'
+                        }
+                    ],
 
-    <div class="content">
-        <h2>Content</h2>
-    </div>
+                    bannerTitle: 'Logo3',
+                    bannerParagraph: 'Hello,Logo3!',
+                    downloadList: [
+                        {
+                            name: 'iOS',
+                            url: 'javascript:alert(\'iOS\')',
+                            logo: '<img class="osLOGO" src="image/logo/apple.png" alt="iOS">'
+                        },
+                        {
+                            name: 'Android',
+                            url: 'javascript:alert(\'Android\')',
+                            logo: '<img class="osLOGO" src="image/logo/android.png" alt="Android">'
+                        },
+                        {
+                            name: 'HarmonyOS',
+                            url: 'javascript:alert(\'Harmony\')',
+                            logo: '<img class="osLOGO" src="image/logo/huawei.png" alt="HarmonyOS">'
+                        },
+                        {
+                            name: 'Windows',
+                            url: 'javascript:alert(\'Windows\')',
+                            logo: '<img class="osLOGO" src="image/logo/windows.png" alt="Windows">'
+                        },
+                        {
+                            name: 'Linux',
+                            url: 'javascript:alert(\'Linux\')',
+                            logo: '<img class="osLOGO" src="image/logo/linux.png" alt="Linux">'
+                        },
+                        {
+                            name: 'MacOS',
+                            url: 'javascript:alert(\'MacOS\')',
+                            logo: '<img class="osLOGO" src="image/logo/apple.png" alt="MacOS">'
+                        }
+                    ],
 
-    <div class="footer">
-        <p>
-            <a href="">关于我们</a> |
-            <a href="">联系我们</a> |
-            <a href="">加入我们</a>
-        </p>
-        <p>&copy; 2024 Logo</p>
-    </div>
+                    contentList: 'Content',
+
+                    footerList: {
+                        webLogo: '<img src="image/logo3-1.png" alt="Logo3">',
+                        copyright_zh: '版权所有©2024 Logo3 备案号',
+                        copyright_EN: 'Copyright © 2024 Logo3. All Rights Reserved',
+                        email: '邮箱：Logo@gmail.com',
+                        footerLink: [
+                            {
+                                name: '关于我们',
+                                url: 'javascript:alert("关于我们")'
+                            },
+                            {
+                                name: '友情链接',
+                                url: 'javascript:alert("友情链接")'
+                            },
+                            {
+                                name: 'Github',
+                                url: 'https://github.com/RHinvacation?tab=repositories'
+                            },
+                            {
+                                name: '加入我们',
+                                url: 'javascript:alert("加入我们")'
+                            }
+                        ],
+                        MediaList: [
+                            {
+                                media: '公众号',
+                                url: 'javascript:alert("公众号")'
+                            },
+                            {
+                                media: '小程序',
+                                url: 'javascript:alert("小程序")'
+                            },
+                            {
+                                media: '微博',
+                                url: 'javascript:alert("微博")'
+                            },
+                            {
+                                media: 'Bilibili',
+                                url: 'javascript:alert("Bilibili")'
+                            },
+                            {
+                                media: '知乎',
+                                url: 'javascript:alert("知乎")'
+                            },
+                            {
+                                media: '抖音',
+                                url: 'javascript:alert("抖音")'
+                            }
+                        ]
+                    }
+                }
+            },
+            methods: {
+                menuBtnClick() {
+                    if (this.menuBtn == '☰') {
+                        this.menuBtn = '×'
+                    } else {
+                        this.menuBtn = '☰'
+                    }
+                },
+            }
+        }
+        const vueApp = Vue.createApp(RootComp)
+        vueApp.mount('#app')
+    </script>
 </body>
-<script src="js/global.js"></script>
 
 </html>
