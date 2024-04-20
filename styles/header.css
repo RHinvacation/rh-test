@@ -11,7 +11,6 @@
 
 .menu {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 20px 30px;
     position: fixed;
@@ -19,6 +18,8 @@
     left: 0;
     right: 0;
     z-index: 999;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .menu-btn {
@@ -26,27 +27,111 @@
     cursor: pointer;
 }
 
-.menu-list {
-    display: flex;
-    flex-direction: column;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
-    position: absolute;
-    width: 100%;
-    top: 84px;
-    left: 0;
-    padding: 20px 0;
+.menu-list li {
+    list-style-type: none;
 }
 
 .menu-list a {
-    display: block;
-    padding: 20px;
     text-decoration: none;
-    transition: color 0.3s ease;
-    text-indent: 1rem;
 }
 
-.menu-list a:hover {
-    color: #0051ff;
-    background-color: #cbdae0;
-    transition: background-color 0.3s ease;
+/* 在手机版显示菜单按钮，其他设备隐藏 */
+@media screen and (max-width: 767px) {
+    .menu {
+        justify-content: space-between;
+    }
+
+    .menu-btn {
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .menu-list {
+        display: flex;
+        flex-direction: column;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
+        position: absolute;
+        width: 100%;
+        top: 84px;
+        left: 0;
+        padding: 20px 0;
+    }
+
+    .menu-list a {
+        display: block;
+        padding: 20px;
+        text-decoration: none;
+        transition: color 0.5s ease;
+        text-indent: 1rem;
+    }
+
+    .menu-list a:hover {
+        color: #0051ff;
+        background-color: #cbdae0;
+        transition: background-color 0.5s ease;
+    }
+}
+
+/* 在大屏幕上调整菜单样式 */
+@media screen and (min-width: 768px) {
+    .menu-btn {
+        display: none;
+        /* 隐藏菜单按钮 */
+    }
+
+    .menu {
+        justify-content: space-between;
+        /* 让 Logo、菜单列表和登录/注册按钮 分开显示 */
+    }
+
+    .menu-list {
+        display: flex;
+        /* 调整菜单列表为水平排列 */
+        justify-content: center;
+        /* 将菜单项靠右显示 */
+        flex: 1;
+        /* 让菜单列表自动占据剩余空间 */
+    }
+
+    .menu-list li {
+        margin-left: 20px;
+        /* 调整菜单项之间的间距 */
+    }
+
+    .lr-btn {
+        margin-left: auto;
+        /* 将登录/注册按钮推到最右边 */
+    }
+
+    .menu-list a {
+        font-size: 16px;
+        padding: 0 20px;
+        /* 调整字体大小 */
+    }
+
+    .menu-list a:hover {
+        background-color: #cbdae0;
+        color: #0051ff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .lr-btn button {
+        background-color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        margin-left: 10px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .lr-btn button:hover {
+        background-color: #e1e1e1;
+        color: #0051ff;
+    }
+
 }

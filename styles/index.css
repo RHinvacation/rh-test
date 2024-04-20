@@ -14,6 +14,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 100px 0;
 }
 
 /* 调整下载区域按钮的样式 */

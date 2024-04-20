@@ -1,0 +1,79 @@
+.topbar {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    color: white;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.menu-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.menu-list {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../image/banner.jpg");
+    position: absolute;
+    width: 100%;
+    top: 84px;
+    left: 0;
+    padding: 20px 0;
+}
+
+.menu-list a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-indent: 1rem;
+}
+
+.menu-list a:hover {
+    color: #0051ff;
+    background-color: #cbdae0;
+    transition: background-color 0.3s ease;
+}
+
+/* 在手机版显示菜单按钮，其他设备隐藏 */
+@media screen and (min-width: 768px) {
+    .menu {
+        padding: 0 30px;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    .menu-list {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        background: none;
+        top: 0;
+    }
+
+    .menu-list li {
+        list-style-type: none;
+    }
+
+    .menu-list a {
+        padding: 10px;
+    }
+}

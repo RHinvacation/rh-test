@@ -4,41 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo3</title>
+    <title>Logo3-Bata1</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
     <div id="app">
         <div class="topbar">
-            <div class="menu">
+            <div class="menu" v-if="isMobile">
                 <div v-html="webLogo"></div>
-                <div class="menu-btn" @click="menuBtnClick">{{menuBtn}}</div>
+                <div class="menu-btn" @click="menuBtnClick">{{ menuBtn }}</div>
                 <div class="menu-list" v-if="menuBtn == '×'">
                     <div v-for="(menuItem, index) in menuList" :key="index">
-                        <a :href="menuItem.url">{{menuItem.name}}</a>
+                        <a :href="menuItem.url">{{ menuItem.name }}</a>
                     </div>
                 </div>
             </div>
+            <div class="menu" v-else>
+                <div v-html="webLogo"></div>
+                <nav class="menu-list">
+                    <li v-for="(menuItem, index) in menuList.slice(0, 4)" :key="index">
+                        <a :href="menuItem.url">{{ menuItem.name}}</a>
+                    </li>
+                </nav>
+                <div class="lr-btn">
+                    <button v-for="(menuItem, index) in menuList.slice(4)" :key="index" @click="lrAlertTo">
+                        <span>{{ menuItem.name }}</span>
+                    </button>
+                </div>
+            </div>
             <div class="banner">
-                <!-- <h1>{{bannerTitle}}</h1>
-                <p>{{bannerParagraph}}</p> -->
+                <h1>{{ bannerTitle }}</h1>
+                <p>{{ bannerParagraph }}</p>
             </div>
             <div class="download-area">
                 <div class="download-btn" v-for="(osItem, index) in downloadList" :key="index">
                     <a :href="osItem.url">
-                        <div v-html="osItem.logo"></div><span class="download-txt">{{osItem.name}}</span>
+                        <div v-html="osItem.logo"></div><span class="download-txt">{{ osItem.name }}</span>
                     </a>
                 </div>
             </div>
         </div>
 
         <div class="content">
-            <h1>{{contentList}}</h1>
+            <h1>{{ contentList }}</h1>
         </div>
 
         <div class="footer">
@@ -47,19 +59,18 @@
                 <div class="footer-right-top">
                     <div class="footer-link">
                         <div v-for="(footerLinkItem, index) in footerList.footerLink" :key="index">
-                            <a :href="footerLinkItem.url">{{footerLinkItem.name}}</a>
+                            <a :href="footerLinkItem.url">{{ footerLinkItem.name }}</a>
                             <span v-if="index < footerList.footerLink.length - 1">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
                         </div>
                     </div>
-                    <div class="email">{{footerList.email}}</div>
-                    <div class="copyright">{{footerList.copyright_zh}}</div>
-                    <div class="copyright">{{footerList.copyright_EN}}</sp>
-                    </div>
+                    <div class="email">{{ footerList.email }}</div>
+                    <div class="copyright">{{ footerList.copyright_zh }}</div>
+                    <div class="copyright">{{ footerList.copyright_EN }}</div>
                 </div>
                 <hr />
                 <div class="media-list">
                     <div v-for="(mediaItem, index) in footerList.MediaList" :key="index">
-                        <a :href="mediaItem.url" >{{mediaItem.media}}</a>
+                        <a :href="mediaItem.url">{{ mediaItem.media }}</a>
                     </div>
                 </div>
             </div>
@@ -85,8 +96,12 @@
                             url: 'javascript:alert("下载中心")'
                         },
                         {
+                            name: '测试',
+                            url: 'javascript:alert("测试")'
+                        },
+                        {
                             name: '登录',
-                            url: 'javascript:alert("登录")'
+                            url: 'https://rhinvacation.github.io/LoginDemo/'
                         },
                         {
                             name: '注册',
@@ -94,8 +109,8 @@
                         }
                     ],
 
-                    bannerTitle: 'Logo3',
-                    bannerParagraph: 'Hello,Logo3!',
+                    bannerTitle: 'Logo3-Bata1',
+                    bannerParagraph: 'Hello,Logo3-Bata1!',
                     downloadList: [
                         {
                             name: 'iOS',
@@ -183,14 +198,44 @@
                     }
                 }
             },
+            computed: {
+                isMobile() {
+                    // 判断是否为手机屏幕，可根据具体需求调整条件
+                    return window.innerWidth < 768
+                }
+            },
             methods: {
                 menuBtnClick() {
-                    if (this.menuBtn == '☰') {
+                    if (this.menuBtn === '☰') {
                         this.menuBtn = '×'
                     } else {
                         this.menuBtn = '☰'
                     }
                 },
+                lrAlertTo(event) {
+                    // 获取按钮上的文字，即按钮的名称
+                    const buttonName = event.target.innerText
+
+                    // 弹出提示框，是否跳转到按钮对应的页面
+                    if (confirm(`是否跳转到"${buttonName}"页面?`)) {
+                        // 弹出提示框，正在跳转
+                        alert(`正在跳转"${buttonName}"页面...`)
+
+                        // 根据按钮名称执行相应的跳转逻辑
+                        switch (buttonName) {
+                            case '登录':
+                                // 跳转到登录页面的URL
+                                window.location.href = 'https://rhinvacation.github.io/LoginDemo/'
+                                break;
+                            case '注册':
+                                // 跳转到注册页面的URL
+                                window.location.href = 'register.html'
+                                break
+                            default:
+                                break
+                        }
+                    }
+                }
             }
         }
         const vueApp = Vue.createApp(RootComp)

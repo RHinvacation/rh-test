@@ -22,7 +22,7 @@
     width: 50%;
 }
 
-.footer-right-top { 
+.footer-right-top {
     margin-bottom: 30px;
 }
 
@@ -38,8 +38,41 @@
     align-items: center;
 }
 
-.media-list  {
+.media-list {
     margin: 20px 50px;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+/* 在小屏幕下将footer-right类挪到footer-left类的下方 */
+@media screen and (max-width: 840px) {
+    .footer {
+        flex-direction: column;
+    }
+
+    .footer-left,
+    .footer-right {
+        padding: 25px 0;
+        width: 100%;
+    }
+}
+
+@media (min-width:433px) and (max-width:840px) {
+    .footer-right-top {
+        margin: 30px 50px;
+    }
+
+    .footer-right hr {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:433px) {
+    .footer-right-top {
+        margin: 30px;
+    }
+
+    .footer-right hr {
+        width: 93%;
+    }
 }
