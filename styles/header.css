@@ -36,7 +36,7 @@
 }
 
 /* 在手机版显示菜单按钮，其他设备隐藏 */
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 767px) {
     .menu {
         justify-content: space-between;
     }
@@ -73,7 +73,7 @@
 }
 
 /* 在大屏幕上调整菜单样式 */
-@media screen and (min-width: 840px) {
+@media screen and (min-width: 768px) {
     .menu-btn {
         display: none;
         /* 隐藏菜单按钮 */
