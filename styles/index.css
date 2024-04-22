@@ -10,7 +10,7 @@ a {
     text-decoration: none;
 }
 
-.banner{
+.banner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -77,4 +77,34 @@ a {
 
 .content h1 {
     font-size: 20px;
+}
+
+@media (max-width: 767px) {
+    .download-area {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        bottom: 40%;
+    }
+
+    .download-btn {
+        width: 42%;
+        margin: 10px;
+    }
+
+    .download-txt {
+        font-size: 3vw;
+    }
+}
+
+@media (min-width:642px) and (max-width: 767px) {
+    .download-area {
+        bottom: 20%;
+        padding: 0 10px;
+    }
+
+    .download-btn {
+        width: 30%;
+        margin: 15px 5px;
+    }
 }
